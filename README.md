@@ -58,7 +58,7 @@ ADMIN_API_KEY=your_secure_admin_api_key_here
 
 ### Running the Bot
 
-Copy and paste any of these commands to run the bot:
+Use commands to run the bot:
 
 ```bash
 # Start the bot in standard mode
@@ -91,52 +91,6 @@ Access the web dashboard at `http://localhost:3000` after starting the bot to:
 - Manage scheduled posts
 - View analytics
 - Adjust settings
-
-## 📊 Examples
-
-### Scheduling a Post
-
-Copy this code to schedule a post:
-
-```javascript
-const bot = require('./ai-social-bot');
-
-bot.schedulePost({
-  content: "Check out our latest product release!",
-  platforms: ["twitter", "facebook"],
-  date: "2025-06-15T10:00:00Z",
-  media: ["./images/product.jpg"]
-});
-```
-
-### Adaptive Learning
-
-Copy this code to submit feedback for AI responses:
-
-```javascript
-// Submit feedback for an AI response
-const bot = require('./ai-social-bot');
-
-bot.submitFeedback({
-  originalPrompt: "How do I reset my password?",
-  originalResponse: "You can reset your password in account settings.",
-  correctedResponse: "To reset your password, go to account settings and click on 'Security'. Then select 'Reset Password' and follow the instructions sent to your email.",
-  context: { platform: "twitter", userId: "12345" }
-});
-```
-
-### Setting Up Auto-Replies
-
-Copy this code to configure auto-replies:
-
-```javascript
-const bot = require('./ai-social-bot');
-
-bot.configureAutoReply({
-  keywords: ["price", "cost", "how much"],
-  response: "Thank you for your interest! Please visit our website at example.com/pricing for detailed pricing information."
-});
-```
 
 ## 🚀 Release Notes
 
