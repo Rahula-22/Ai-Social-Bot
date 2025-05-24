@@ -46,6 +46,11 @@ cp .env.example .env
 ```
 
 4. Add your API keys and configuration settings to the `.env` file.
+   ENABLE_FINE_TUNING=false
+   TRAINING_CRON=0 0 * * *
+   FEEDBACK_THRESHOLD=10
+   GROQ_API_KEY=your_groq_api_key_here
+   ADMIN_API_KEY=your_secure_admin_api_key_here
 
 ## 💻 Usage
 
