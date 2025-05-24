@@ -49,10 +49,10 @@ GROQ_API_KEY=your_groq_api_key_here
 ADMIN_API_KEY=your_secure_admin_api_key_here
 ```
 4.How to Get Your Groq API Key?
--Go to [Groq Cloud Console](https://console.groq.com/)
--Log in or sign up for an account
--Click Create API Key
--Copy your new API key and paste it into your .env file as shown above
+- Go to [Groq Cloud Console](https://console.groq.com/)
+- Log in or sign up for an account
+- Click Create API Key
+- Copy your new API key and paste it into your .env file as shown above
 
 5 .env and .gitignore should never be committed.
 
