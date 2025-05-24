@@ -1,12 +1,10 @@
 # AI Social Bot
 
-An intelligent bot designed to interact on social media platforms using AI capabilities.
-
-![AI Social Bot Logo](assets/logo.png)
+An intelligent bot designed to automate and enhance social media interactions using AI.
 
 ## 📋 Overview
 
-AI Social Bot is a fully implemented automated solution that leverages artificial intelligence to manage social media interactions. It posts content, responds to messages, analyzes engagement metrics, and maintains an active social media presence.
+AI Social Bot is a powerful, fully-automated AI solution for managing social media platforms. It helps maintain a consistent online presence by posting content, responding to user messages, analyzing engagement, and learning from feedback — all in one place.
 
 ## ✨ Features
 
@@ -17,6 +15,8 @@ AI Social Bot is a fully implemented automated solution that leverages artificia
 - **Content Suggestion**: Generate ideas for future posts
 - **Multi-platform Support**: Works with Twitter, Facebook, Instagram, and LinkedIn
 - **Learning & Adaptation**: System improves over time based on feedback and corrections
+- **Chat Interface**: Users can chat with the bot and ask product-related queries.
+- **Settings Panel**: Customize bot behavior, response style, and platform-specific settings.
 
 ## 🚀 Getting Started
 
@@ -25,7 +25,7 @@ AI Social Bot is a fully implemented automated solution that leverages artificia
 - Node.js (v14.0 or higher)
 - NPM or Yarn
 - API keys for supported social media platforms
-- OpenAI API key for AI capabilities
+- Groq API Key for AI capabilities
 
 ### Installation
 
@@ -40,7 +40,7 @@ cd ai-social-bot
 npm install
 ```
    
-3. Create a `.env` file in backend directory and add your API keys and configuration settings to the `.env` file:
+3. Create a .env file inside the backend directory and add the following:
 ```bash
 ENABLE_FINE_TUNING=false
 TRAINING_CRON=0 0 * * *
@@ -48,13 +48,11 @@ FEEDBACK_THRESHOLD=10
 GROQ_API_KEY=your_groq_api_key_here
 ADMIN_API_KEY=your_secure_admin_api_key_here
 ```
-4.How to Get Your Groq API Key?
+4. Get Your Groq API Key:
 - Go to [Groq Cloud Console](https://console.groq.com/)
 - Log in or sign up for an account
 - Click Create API Key
 - Copy your new API key and paste it into your .env file as shown above
-
-5 .env and .gitignore should never be committed.
 
 ## 💻 Usage
 
@@ -68,7 +66,9 @@ npm start
 
 # For development mode with auto-reload
 npm run dev
-
+```
+### Start the Frontend
+```bash
 # Open a second terminal and use command:
 cd ai-social-bot
 cd frontend
@@ -91,8 +91,9 @@ Access the web dashboard at `http://localhost:3000` after starting the bot to:
 
 - Monitor bot activity
 - Manage scheduled posts
-- View analytics
-- Adjust settings
+- View sentiment & engagement analytics
+- Adjust AI and platform settings
+- Interact via Chat: Ask product-related questions to the bot
 
 ## 🚀 Release Notes
 
@@ -101,6 +102,8 @@ Access the web dashboard at `http://localhost:3000` after starting the bot to:
 - Full support for Twitter, Facebook, Instagram, and LinkedIn
 - Complete AI response system with sentiment analysis
 - Analytics dashboard with reporting features
+- Chat feature for product queries
+- Configurable bot settings and preferences
 
 ## 🔧 Troubleshooting
 
