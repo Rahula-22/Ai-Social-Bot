@@ -1,0 +1,321 @@
+.tweet-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.tweet-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.tweet-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.tweet-user {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1DA1F2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.user-avatar.small {
+  width: 28px;
+  height: 28px;
+  font-size: 0.8rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 700;
+  color: #14171a;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #657786;
+}
+
+.sentiment-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.sentiment-badge.positive {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.sentiment-badge.neutral {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+.sentiment-badge.negative {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.tweet-body {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.tweet-text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #14171a;
+}
+
+.tweet-reply {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.reply-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.bot-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #6c5ce7;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.75rem;
+  margin-right: 8px;
+}
+
+.bot-name {
+  font-weight: 600;
+  color: #14171a;
+  font-size: 0.9rem;
+}
+
+.reply-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #14171a;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.tweet-actions {
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: #657786;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #e8f5fe;
+  color: #1DA1F2;
+}
+
+.action-btn svg {
+  margin-right: 4px;
+}
+
+.action-btn:hover svg {
+  fill: #1DA1F2;
+}
+
+.action-btn.active {
+  color: #1DA1F2;
+}
+
+.action-count {
+  margin-left: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Handle specific active states for retweet and like */
+.action-btn.active svg[fill="#17BF63"] + span {
+  color: #17BF63;
+}
+
+.action-btn.active svg[fill="#E0245E"] + span {
+  color: #E0245E;
+}
+
+/* Feedback Form Styles */
+.improve-btn {
+  color: #657786;
+  border-left: 1px solid #e1e8ed;
+  padding-left: 12px;
+}
+
+.feedback-form {
+  padding: 1rem;
+  border-top: 1px solid #e1e8ed;
+  background-color: #f8f9fa;
+}
+
+.feedback-form h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #14171a;
+}
+
+.feedback-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e1e8ed;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.feedback-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.feedback-submit, .feedback-cancel {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.feedback-submit {
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+}
+
+.feedback-submit:disabled {
+  background-color: #9ad0f5;
+  cursor: not-allowed;
+}
+
+.feedback-cancel {
+  background-color: transparent;
+  border: 1px solid #e1e8ed;
+  color: #657786;
+}
+
+.feedback-thanks {
+  color: #1DA1F2;
+  font-size: 0.8rem;
+  font-style: italic;
+  padding: 0.25rem 0.5rem;
+}
+
+/* User replies */
+.user-replies {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.user-reply {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #f0f2f5;
+}
+
+.user-reply .reply-text {
+  margin-left: 40px;
+}
+
+/* Reply input */
+.reply-input-container {
+  padding: 1rem;
+  border-top: 1px solid #f0f2f5;
+  background-color: #f8f9fa;
+}
+
+.reply-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e1e8ed;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.reply-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.reply-submit-btn, .reply-cancel-btn {
+  padding: 0.4rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.reply-submit-btn {
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+}
+
+.reply-submit-btn:disabled {
+  background-color: #9ad0f5;
+  cursor: not-allowed;
+}
+
+.reply-cancel-btn {
+  background-color: transparent;
+  border: 1px solid #e1e8ed;
+  color: #657786;
+}

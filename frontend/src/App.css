@@ -1,0 +1,434 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Header Styles */
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  margin: 0;
+  color: #1DA1F2;
+  font-size: 1.5rem;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.main-nav button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.main-nav button:hover {
+  background-color: #f0f2f5;
+}
+
+.main-nav button.active {
+  background-color: #e8f5fe;
+  color: #1DA1F2;
+  font-weight: 500;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Dashboard Styles */
+.dashboard-container h2, 
+.tweets-container h2,
+.settings-container h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.analytics-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+}
+
+.analytics-card h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.75rem;
+}
+
+/* Stats */
+.analytics-stat {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1DA1F2;
+}
+
+.stat-label {
+  color: #657786;
+  font-size: 0.9rem;
+}
+
+/* Sentiment Visualization */
+.sentiment-breakdown {
+  grid-row: span 1;
+}
+
+.sentiment-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sentiment-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sentiment-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #657786;
+}
+
+.sentiment-bar-container {
+  height: 10px;
+  background-color: #e1e8ed;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sentiment-bar {
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+.sentiment-bar.positive {
+  background-color: #4caf50;
+}
+
+.sentiment-bar.neutral {
+  background-color: #ffc107;
+}
+
+.sentiment-bar.negative {
+  background-color: #f44336;
+}
+
+.sentiment-count {
+  position: absolute;
+  right: 8px;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+/* Recent Activity */
+.recent-activity {
+  grid-column: span 2;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.username {
+  font-weight: 600;
+  margin-right: 1rem;
+  width: 100px;
+}
+
+.activity-text {
+  flex: 1;
+  color: #657786;
+}
+
+.sentiment-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.sentiment-indicator.positive {
+  background-color: #4caf50;
+}
+
+.sentiment-indicator.neutral {
+  background-color: #ffc107;
+}
+
+.sentiment-indicator.negative {
+  background-color: #f44336;
+}
+
+.view-all-btn {
+  margin-top: 1rem;
+  background-color: #f5f8fa;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.view-all-btn:hover {
+  background-color: #e8f5fe;
+  border-color: #1da1f2;
+  color: #1da1f2;
+}
+
+/* Tweets Grid */
+.tweets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Settings */
+.settings-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  max-width: 600px;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group select,
+.form-group input[type="text"] {
+  padding: 0.75rem;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #657786;
+  font-size: 0.8rem;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.save-btn {
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.save-btn:hover {
+  background-color: #1a91da;
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #1DA1F2;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Footer */
+.footer {
+  padding: 1.5rem 2rem;
+  background-color: #ffffff;
+  text-align: center;
+  color: #657786;
+  margin-top: 2rem;
+  box-shadow: 0 -1px 3px rgba(0,0,0,0.08);
+}
+
+
+/* CRM Integration Styles */
+.crm-section {
+  margin-top: 2rem;
+}
+
+.save-status.error {
+  color: #f44336;
+}
+
+.sync-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  vertical-align: middle;
+}
+
+.sync-status.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.sync-status.error {
+  background-color: #f44336;
+  color: white;
+}
+
+.save-status {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
+.save-status.saving {
+  color: #ffc107;
+}
+
+.save-status.saved {
+  color: #4caf50;
+}
+
+/* Learning settings */
+.learning-section {
+  margin-top: 1rem;
+  border-top: 1px solid #f0f2f5;
+  padding-top: 1rem;
+}
+
+/* New Escalation Threshold Slider */
+.escalation-slider {
+  margin-top: 1rem;
+}
+
+.escalation-settings {
+  background-color: rgba(255, 235, 205, 0.3);
+  border: 1px solid #f0e1c4;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.escalation-settings h4 {
+  margin-top: 0;
+  color: #d4963e;
+}
+
+.escalation-keyword {
+  display: inline-block;
+  background-color: #f4e9d5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.chat-container-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chat-container-wrapper h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.chat-description {
+  margin-bottom: 1.5rem;
+  color: #657786;
+  line-height: 1.5;
+}

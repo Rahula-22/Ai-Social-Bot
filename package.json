@@ -1,0 +1,26 @@
+{
+  "name": "ai-social-bot",
+  "version": "1.0.0",
+  "description": "An intelligent bot designed to interact on social media platforms using AI capabilities",
+  "main": "backend/index.js",
+  "scripts": {
+    "start": "node backend/index.js",
+    "dev": "nodemon backend/index.js",
+    "frontend": "cd frontend && npm start",
+    "dev-full": "concurrently \"npm run dev\" \"npm run frontend\"",
+    "install-all": "npm install && cd frontend && npm install"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "groq-sdk": "^0.22.0",
+    "node-cron": "^3.0.2",
+    "openai": "^4.0.0",
+    "sentiment": "^5.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22"
+  }
+}

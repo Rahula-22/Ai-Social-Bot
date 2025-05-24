@@ -1,0 +1,21 @@
+{
+  "brandVoice": "default",
+  "responseLength": 131,
+  "escalationThreshold": 7,
+  "triggers": {
+    "mentions": true,
+    "comments": true,
+    "directMessages": false,
+    "hashtags": false
+  },
+  "learning": {
+    "successfulReplies": true,
+    "pastInteractions": true
+  },
+  "crm": {
+    "crmType": "custom",
+    "apiKey": "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",
+    "syncCustomers": true,
+    "syncInteractions": true
+  }
+}
