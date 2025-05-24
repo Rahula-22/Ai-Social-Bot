@@ -40,12 +40,7 @@ cd ai-social-bot
 npm install
 ```
    
-3. Create a `.env` file based on the `.env.example`:
-```bash
-cp .env.example .env
-```
-
-4. Add your API keys and configuration settings to the `.env` file:
+3. Create a `.env` file and add your API keys and configuration settings to the `.env` file:
 ```bash
 ENABLE_FINE_TUNING=false
 TRAINING_CRON=0 0 * * *
