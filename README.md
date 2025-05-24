@@ -149,10 +149,6 @@ If you encounter issues, try these solutions:
 - **Startup errors**: Check the logs at `logs/error.log` for detailed information
 - **AI response quality**: Try adjusting the response parameters in `config.json`
 
-## 📘 Documentation
-
-Full documentation is available at [docs.ai-social-bot.com](https://docs.ai-social-bot.com)
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
