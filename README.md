@@ -31,7 +31,7 @@ AI Social Bot is a fully implemented automated solution that leverages artificia
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ai-social-bot/ai-social-bot.git
+git clone https://github.com/Rahula-22/Ai-Social-Bot.git
 cd ai-social-bot
 ```
 
