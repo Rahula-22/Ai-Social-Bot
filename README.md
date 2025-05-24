@@ -49,7 +49,7 @@ GROQ_API_KEY=your_groq_api_key_here
 ADMIN_API_KEY=your_secure_admin_api_key_here
 ```
 4.How to Get Your Groq API Key?
-1.Go to [Groq Cloud Console](https://console.groq.com/)
+Go to [Groq Cloud Console](https://console.groq.com/)
 2.Log in or sign up for an account
 3.Click Create API Key
 4.Copy your new API key and paste it into your .env file as shown above
