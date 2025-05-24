@@ -69,11 +69,11 @@ npm start
 # For development mode with auto-reload
 npm run dev
 
-# Run with specific configuration
-npm start -- --config=custom-config.json
-
-# Run in debug mode for additional logging
-npm run debug
+# Open a second terminal and use command:
+cd ai-social-bot
+cd frontend
+npm install
+npm start
 ```
 
 ### Configuration
