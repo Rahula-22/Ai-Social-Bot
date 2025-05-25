@@ -10,7 +10,6 @@ console.log('Groq client constructor:', typeof Groq);
 const apiKey = process.env.GROQ_API_KEY;
 console.log('GROQ_API_KEY available:', apiKey ? 'Yes' : 'No');
 
-// Initialize Groq client with error handling
 let groq;
 try {
   if (!apiKey) {
@@ -59,7 +58,6 @@ try {
 }
 
 // Store conversation histories in memory
-// In production, use a database like MongoDB or Redis
 const conversations = new Map();
 
 // Enhanced brand voice profiles with more human-like characteristics
@@ -73,7 +71,7 @@ const brandProfiles = {
   support: "You are Alex, a customer support specialist who genuinely cares about solving problems. You first acknowledge the customer's feelings ('I completely understand how frustrating this must be'), then provide clear solutions. Your tone is empathetic but efficient, like a helpful colleague rather than a corporate representative. Use natural language with occasional phrases like 'Let me look into this for you' or 'I'd recommend trying...' that a real support person would use."
 };
 
-// Define escalation keywords and thresholds (can be moved to config)
+// Define escalation keywords and thresholds
 const escalationKeywords = [
   'refund', 'cancel', 'broken', 'not working', 
   'issue', 'problem', 'disappointed', 'angry',
@@ -100,13 +98,12 @@ function shouldEscalate(tweet, sentiment, username) {
     if (sentiment < -0.3) return true;
   }
   
-  // Check for repeat contact (would use past interactions in real implementation)
+  // Check for repeat contact
   const userInteractionCount = conversations.has(username) ? 
     conversations.get(username).length : 0;
   
   if (userInteractionCount >= 3 && sentiment < 0) return true;
   
-  // Complex questions - look for length and question marks
   if (tweet.length > 200 && tweet.includes('?')) return true;
   
   return false;
@@ -134,7 +131,6 @@ function formatUsername(username) {
 }
 
 /**
- * Check if a response appears incomplete and fix it
  * @param {string} response - The AI-generated response
  * @returns {string} - Fixed response
  */
@@ -156,7 +152,6 @@ function fixIncompleteResponses(response) {
 
   // Check if response ends with a list that looks incomplete
   if (/\d+\.\s+[^.!?]*$/.test(response) || /\s*-\s+[^.!?]*$/.test(response)) {
-    // Trim the incomplete list item
     response = response.replace(/\d+\.\s+[^.!?]*$/, "").replace(/\s*-\s+[^.!?]*$/, "");
     response = response.trim();
     
@@ -181,7 +176,6 @@ function fixIncompleteResponses(response) {
   // Check if response is a sentence fragment (no period/question mark/exclamation)
   const lastChar = response.charAt(response.length - 1);
   if (!['.', '!', '?'].includes(lastChar)) {
-    // Make best effort to complete the sentence
     if (response.length < 240) {
       response += ".";
     } else {
@@ -201,7 +195,7 @@ function fixIncompleteResponses(response) {
 /**
  * Generate a brand-voice reply using the Groq API.
  * @param {{ tweet: string, sentiment: number, username: string }} summary
- * @param {string} conversationId - The conversation identifier
+ * @param {string} conversationId 
  * @returns {Promise<string>}
  */
 async function generateReply(summary, conversationId = null) {
@@ -280,28 +274,25 @@ async function generateReply(summary, conversationId = null) {
       content: `Tweet from ${formattedUser}: "${tweet}"\nSentiment: ${sentimentLabel}\n\nRespond directly and naturally. Keep it under 250 characters and ensure it's a COMPLETE thought - never end mid-sentence. Don't use their @ handle in your reply.` 
     });
 
-    // Call Groq API with increased max_tokens to ensure complete sentences
     const completion = await groq.chat.completions.create({
       model:       'llama3-8b-8192',
       messages,
       temperature: 0.7,
-      max_tokens:  150, // Increased from 120 to ensure complete responses
+      max_tokens:  150,
       top_p:        1.0,
     });
 
     let response = completion.choices[0].message.content.trim();
     
-    // Clean up response for a more human tone
     response = response.replace(/@@+(\w+)/g, '@$1'); 
-    response = response.replace(/@\s+@(\w+)/g, '@$1'); // Fix spaced double @
-    response = response.replace(/@\s+(\w+)/g, '@$1'); 
+    response = response.replace(/@\s+@(\w+)/g, '@$1');
     response = response.replace(/^["']|["']$/g, '').trim();
     
     // Remove AI-like phrases and username mentions
     response = response.replace(/as an AI|as a language model|AI assistant|I'm an AI/gi, '');
     response = response.replace(/I'd be happy to help|I'm here to assist|please let me know if/gi, '');
-    response = response.replace(new RegExp(`^@?${plainUser}[,:]?\\s*`, 'i'), ''); // Remove username from start
-    response = response.replace(/^@\w+[,:]?\s*/i, ''); // Remove any username from start
+    response = response.replace(new RegExp(`^@?${plainUser}[,:]?\\s*`, 'i'), '');
+    response = response.replace(/^@\w+[,:]?\s*/i, '');
 
     // Check if response appears to be cut off and attempt to fix it
     response = fixIncompleteResponses(response);
