@@ -29,7 +29,7 @@ function TweetCard({ id, username, tweet, sentiment, reply, timestamp }) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        tweetId: id || username, // Use username as fallback ID
+        tweetId: id || username,
         responseQuality: 'needs-improvement',
         suggestionText: feedbackText 
       })
@@ -39,12 +39,10 @@ function TweetCard({ id, username, tweet, sentiment, reply, timestamp }) {
   };
   
   const handleLike = () => {
-    // Toggle like state
     const newLikeState = !isLiked;
     setIsLiked(newLikeState);
     setLikeCount(prevCount => newLikeState ? prevCount + 1 : Math.max(0, prevCount - 1));
-    
-    // Send like action to backend (analytics purposes)
+   
     fetch('/api/interaction', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

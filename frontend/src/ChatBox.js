@@ -21,7 +21,6 @@ const handleSubmit = async (e) => {
   
   if (!input.trim()) return;
   
-  // Add user message to chat
   const userMessage = { role: 'user', content: input };
   setMessages(prev => [...prev, userMessage]);
   setIsLoading(true);
@@ -37,7 +36,7 @@ const handleSubmit = async (e) => {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
-        'X-Session-Id': 'web-chat-user-' + Date.now()  // Add a unique session ID
+        'X-Session-Id': 'web-chat-user-' + Date.now() 
       },
       body: JSON.stringify({ message: userInput })
     });
