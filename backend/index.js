@@ -122,17 +122,15 @@ app.get('/api/analytics', (req, res) => {
 // Add endpoint to get responses by conversation
 app.get('/api/conversations/:username', (req, res) => {
   const username = req.params.username;
-  // In a real app, you would fetch this from a database
   res.json({ 
     username,
-    conversations: [] // Return conversation history
+    conversations: []
   });
 });
 
 // Add configuration endpoint
 app.post('/api/config', (req, res) => {
   const { brandVoice, responseLength, triggers, learning } = req.body;
-  // In a real app, you would store these settings
   console.log('Received new configuration:', req.body);
   res.json({ success: true });
 });
@@ -169,7 +167,6 @@ app.post('/api/feedback', async (req, res) => {
       context: context || {}
     });
     
-    // Check if we should trigger retraining
     if (feedbackManager.shouldTriggerRetraining()) {
       // Trigger async training without blocking response
       modelTrainer.trainOnFeedback().catch(err => 
@@ -179,10 +176,8 @@ app.post('/api/feedback', async (req, res) => {
     
     // Extract Q&A pairs from good suggestions to build FAQ database
     if (correctedResponse && correctedResponse.length > 10) {
-      // In a real app, you'd process this with NLP to extract question/answer pairs
       try {
         if (originalPrompt && originalPrompt.includes('?')) {
-          // This is likely a question - store it in our FAQ database
           faqStore.set(originalPrompt, correctedResponse);
           console.log(`Added new FAQ: Q="${originalPrompt}" A="${correctedResponse.substring(0, 50)}..."`);
         }
@@ -265,7 +260,6 @@ app.post('/api/crm/sync', (req, res) => {
   
   // Simulate CRM integration
   if (success) {
-    // Here you would add actual CRM API calls
     console.log('CRM settings saved successfully');
     
     // Simulate API latency
@@ -281,17 +275,14 @@ app.post('/api/crm/sync', (req, res) => {
   }
 });
 
-// Make sure server handles shutdown properly
 process.on('SIGTERM', () => {
   console.log('SIGTERM signal received, shutting down training scheduler');
   trainingScheduler.stop();
-  // other cleanup code
 });
 
 process.on('SIGINT', () => {
   console.log('SIGINT signal received, shutting down training scheduler');
   trainingScheduler.stop();
-  // other cleanup code
 });
 
 app.listen(PORT, () => {
@@ -313,7 +304,6 @@ app.post('/api/chat', async (req, res) => {
     const chatUserId = req.headers['x-session-id'] || 'web-chat-user';
     console.log(`Processing chat for session: ${chatUserId}`);
     
-    // Use neutral sentiment for direct interactions
     const sentiment = 0; 
     
     // Generate reply using the same function used for tweets
