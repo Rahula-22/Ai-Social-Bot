@@ -1,7 +1,6 @@
 const feedbackManager = require('./feedbackManager');
 require('dotenv').config();
 
-// Use Groq if available, otherwise fallback to OpenAI
 let client;
 let clientType;
 
@@ -89,7 +88,6 @@ class ModelTrainer {
   }
 
   prepareFeedbackForTraining(feedbackItems) {
-    // Transform feedback data into format suitable for training
     return feedbackItems.map(item => ({
       prompt: this.formatPrompt(item.originalPrompt, item.context),
       completion: item.correctedResponse,
@@ -102,7 +100,6 @@ class ModelTrainer {
   }
   
   formatPrompt(prompt, context) {
-    // Format prompt with context for better learning
     return `Context: ${JSON.stringify(context)}\nPrompt: ${prompt}`;
   }
 
@@ -117,9 +114,7 @@ class ModelTrainer {
       
       // This is a simplified implementation for both Groq and OpenAI
       console.log(`Fine-tuning simulation with ${trainingExamples.length} examples`);
-      
-      // In a real implementation, you'd prepare data for the specific API
-      // and initiate the fine-tuning process      
+           
     } catch (error) {
       console.error('Error during fine-tuning:', error);
       throw error;
@@ -130,17 +125,13 @@ class ModelTrainer {
     console.log('Updating embedding store with new examples...');
     
     try {
-      // Save examples to a simple file-based store
       const fs = require('fs');
       const path = require('path');
-      
-      // In a real implementation, we'd generate actual embeddings
-      // For this implementation, we just store the raw examples
+
       for (const example of trainingExamples) {
         example.embedding = "placeholder-embedding";
       }
-      
-      // Save to a file (in production, use a vector DB)
+
       const embeddingsPath = path.join(__dirname, '../data/embeddings.json');
       let embeddings = [];
       
