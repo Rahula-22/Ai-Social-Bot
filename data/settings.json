@@ -1,6 +1,6 @@
 {
   "brandVoice": "default",
-  "responseLength": 131,
+  "responseLength": 118,
   "escalationThreshold": 7,
   "triggers": {
     "mentions": true,
@@ -13,7 +13,7 @@
     "pastInteractions": true
   },
   "crm": {
-    "crmType": "custom",
+    "crmType": "hubspot",
     "apiKey": "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",
     "syncCustomers": true,
     "syncInteractions": true
